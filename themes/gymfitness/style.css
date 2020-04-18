@@ -88,6 +88,7 @@ hr{
   border: 1px solid var(--grisClaro);
 }
 
+
 /*Utilidad*/
 .txt_center{
   text-align: center;
@@ -104,6 +105,35 @@ hr{
 .max-100{
   width:100%;
 }
+.contenedor-boton{
+  display: flex;
+  justify-content: flex-end;
+}
+
+/** Boton **/
+.boton{
+  padding:1rem 3rem;
+  font-weight: 700;
+  background-color:var(--blanco);
+  color:var(--negro);
+  display: block;
+  flex:1;
+  font-size: 1.6rem;
+  text-transform: uppercase;;
+  text-align: center;
+  border-radius: 0.5rem;
+}
+ @media (min-width: 768px) {
+  .boton{
+    display: inlin-block;
+    flex:0 0 auto;
+  }
+}
+.boton-primario{
+  background-color:var(--colorPrimario);
+  color:var(--blanco);
+}
+
 /*Header*/
 body.home .site-header{
   padding-top:2rem;
@@ -604,4 +634,63 @@ div.wpcf7-mail-sent-ok{
 }
 .contenedor-areas{
   display: flex;
+  flex-wrap: wrap;
+
+}
+.contenedor-areas .area{
+  flex:0 0 100%;
+  height: 300px;
+  position:relative;/*Para encimar el degradado*/
+  /*Posicionar las letras en el centro*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ @media (min-width: 480px) {
+   .contenedor-areas .area{
+     flex:0 0 50%;
+   }
+}
+ @media (min-width: 768px) {
+   .contenedor-areas .area{
+     flex:0 0 25%;
+     height: 300px;
+   }
+}
+.contenedor-areas .area img{
+  height: 300px;
+  object-fit: cover;/*Para que cubra el espacio*/
+}
+.contenedor-areas .area::after{
+  content:'';
+  background: linear-gradient(
+      rgba(0,0,0,0.75),
+      rgba(0,0,0,0.75)
+  );
+  display: block;
+  width: 100%;
+  height: 100%;
+  position:absolute;
+  top:0;
+}
+.area p{
+  color:var(--blanco);
+  position: absolute;
+  margin:auto;
+  font-size: 2rem;
+  font-weight: 900;
+  z-index: 100;
+  text-align: center;
+}
+ @media (min-width: 768px) {
+  .area p{
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+  .area:hover p{
+    opacity: 1;
+  }
+}
+.clases{
+  background-color:var(--grisClaro);
 }

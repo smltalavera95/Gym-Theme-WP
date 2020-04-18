@@ -45,4 +45,19 @@
 
 </div>
 
+<section class="clases">
+  <div class="contenedor seccion">
+    <h2 class="txt_center txt_primary">Nuestras Clases</h2>
+
+    <?php gymfitness_lista_clases(4); ?>
+    <div class="contenedor-boton">
+        <a href="<?php echo esc_url(get_permalink(get_page_by_title('Nuestras Clases'))); ?>" class="boton boton-primario">
+          Ver Todas las Clases
+        </a>
+    </div>
+
+  </div>
+
+</section>
+
 <?php get_footer();?>

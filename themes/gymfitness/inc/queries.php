@@ -1,11 +1,11 @@
 <?php
 
-function gymfitness_lista_clases(){?>
+function gymfitness_lista_clases($cantidad = -1){?>
   <ul class="lista-clases">
     <?php
       $args = array ( //Aca va ser los argumentos para consulta
         'post_type' => 'gymfitness_clases',//Especificando que post type queremos consultar
-        'posts_per_page' => 10, //Cuantos se desean mostrar, para mostrar todos se puede poner -1 *no recomendable
+        'posts_per_page' => $cantidad, //Cuantos se desean mostrar, para mostrar todos se puede poner -1 *no recomendable
         'order' => 'DESC'
       );
       $clases = new WP_Query($args); //Almacenar en un objeto los resultados
@@ -19,7 +19,7 @@ function gymfitness_lista_clases(){?>
               <h3><?php the_title();?></h3>
             </a>
             <?php
-            //Cuando es get se debe almacenar para mostrarlo con un echo
+            //Cuando es get se debe almacenar para mostrarlo con un echos
               $hora_inicio = get_field('hora_inicio');
               $hora_fin = get_field('hora_fin');
              ?>
