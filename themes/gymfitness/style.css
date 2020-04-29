@@ -148,6 +148,7 @@ body.home .site-header{
  @media (min-width: 768px) {
   body.home .site-header{
     height: 100vh;
+    max-height: 90rem;
   }
   .header-grid{
     height: 100%;
