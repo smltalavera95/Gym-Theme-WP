@@ -52,6 +52,10 @@ function gym_scripts_styles(){
     wp_enqueue_style( 'lightboxCSS', get_template_directory_uri() . '/css/lightbox.min.css', array(), '2.11.0');
   endif;
 
+  /*Slider*/
+  if(is_page('inicio')):
+    wp_enqueue_style( 'bxSliderCSS', "https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css", array(), '4.2.12');
+  endif;
   /*Estilos de Mapa en contacto*/
   /*Si esta en pagina en contacto va cargar este archivo*/
   if(is_page('contacto')):
@@ -64,11 +68,20 @@ function gym_scripts_styles(){
   /*Solo si esta en galeria carga el script del Lightbox*/
   if(is_page('galeria')):
     wp_enqueue_script( 'LightboxJS', get_template_directory_uri() . '/js/lightbox.min.js', array('jquery'), '2.11.0', true);
+
   endif;
   /*Solo si esta en contacto carga el script del Lightbox*/
   if(is_page('contacto')):
-    wp_enqueue_script( 'leafletJS', "https://unpkg.com/leaflet@1.6.0/dist/leaflet.js", array(), '1.6.0', true);
+    wp_enqueue_script( 'leafletJS', "https://unpkg.com/leaflet@1.6.0/dist/leaflet.js", array('jquery'), '1.6.0', true);
+    
   endif;
+
+  /*Script Slider*/
+  if(is_page('inicio')):
+    wp_enqueue_script( 'bxSliderJS', "https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js", array(), '4.2.12', true);
+
+  endif;
+
 }
 add_action( 'wp_enqueue_scripts', 'gym_scripts_styles' );
 

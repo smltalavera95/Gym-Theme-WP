@@ -1,8 +1,7 @@
-<?php while(have_posts()): the_post(); ?>
-  <?php  if(count_posts()==1): ?>
+<?php  if(count_posts()==1 && !is_page('inicio')): ?>
   <li class="card only gradient">
   <?php endif;?>
-  <?php  if(count_posts()>1): ?>
+  <?php  if(count_posts()>1 || is_page('inicio')): ?>
   <li class="card gradient">
   <?php endif;?>
     <?php the_post_thumbnail('mediano'); ?>
@@ -13,4 +12,3 @@
       </a>
     </div>
   </li>
-<?php endwhile;?>
